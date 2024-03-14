@@ -29,6 +29,11 @@ root.title("画像表示アプリ")
 now = ImageData()
 img_stack = Stack()
 
+"""
+ショートカットキーで呼び出す関数は引数を受け取る必要があるが、ツールバーから呼び出した際は
+引数が発生しないためデフォルト引数でNoneにしておく
+"""
+
 
 # ラベルへ画像を張り付ける
 def dispLabel(new_image):
@@ -40,7 +45,7 @@ def dispLabel(new_image):
 
 
 # フォルダを開く
-def openFile():
+def openFile(event=None):
     fpath = fd.askopenfilename()
     # 指定のアドレスが存在するなら画面に表示する
     if fpath:
@@ -124,12 +129,6 @@ def turnRight():
     address_box.configure(state="readonly")
 
 
-"""
-ショートカットキーで呼び出す関数は引数を受け取る必要があるが、ツールバーから呼び出した際は
-引数が発生しないためデフォルト引数でNoneにしておく
-"""
-
-
 # 元に戻す・やり直す処理
 def undo(event=None):
     address_box.configure(state="normal")
@@ -165,13 +164,17 @@ image_lbl = tk.Label(relief="sunken")
 
 # メニューバーの設置
 edit_menu = tk.Menu(menubar, tearoff=0)
+file_menu = tk.Menu(menubar, tearoff=0)
+menubar.add_cascade(label="ファイル", menu=file_menu)
 menubar.add_cascade(label="編集", menu=edit_menu)
+file_menu.add_command(label="開く", command=openFile, accelerator="Ctrl+O")
 edit_menu.add_command(label="Undo", command=undo, accelerator="Ctrl+Z")
 edit_menu.add_command(label="Redo", command=redo, accelerator="Ctrl+Y")
 
 # ショートカットキーの設定
 root.bind("<Control-z>", undo)
 root.bind("<Control-y>", redo)
+root.bind("<Control-o>", openFile)
 
 # ボタン等の設置
 image_lbl.pack()
