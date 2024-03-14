@@ -35,9 +35,9 @@ class SizeChangeDialog(simpledialog.Dialog):
         hcmd = self.register(self.horizonSwitchButtonValidate)
         self.vertical_entry: tk.Entry = tk.Entry(master, width=10, validate="key",
                                                  validatecommand=(vcmd, "%P"))
-        self.vertical_entry.pack(side=tk.LEFT, padx=5, pady=5)
         self.horizon_entry: tk.Entry = tk.Entry(master, width=10, validate="key",
                                                 validatecommand=(hcmd, "%P"))
+        self.vertical_entry.pack(side=tk.LEFT, padx=5, pady=5)
         self.horizon_entry.pack(side=tk.LEFT, padx=5, pady=5)
 
     def buttonbox(self):
