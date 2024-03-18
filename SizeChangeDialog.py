@@ -5,25 +5,36 @@ import re
 
 
 class SizeChangeDialog(simpledialog.Dialog):
+    """
+    相方となるEntryと編集後になる予定の文字列が両方存在しているときにのみOKボタンを有効化する
+    """
+
     def verticalSwitchButtonValidate(self, s):
         if self.horizon_entry.get() and s:
             self.button1["state"] = tk.NORMAL
         else:
             self.button1["state"] = tk.DISABLED
-        return self.validater(s)
+        return self.entryValidater(s)
 
     def horizonSwitchButtonValidate(self, s):
         if self.vertical_entry.get() and s:
             self.button1["state"] = tk.NORMAL
         else:
             self.button1["state"] = tk.DISABLED
-        return self.validater(s)
+        return self.entryValidater(s)
 
-    @staticmethod
-    def validater(s):
+    """
+    数字の入力と文字の削除しか受け付けないようにする
+    """
+    def entryValidater(self, s):
         if re.fullmatch(re.compile("[0-9]+"), s) or not s:
             return True
         else:
+            # 入力をキャンセルする際、入力前の状態でOKボタンの状態を再度決定する
+            if self.vertical_entry.get() and self.horizon_entry.get():
+                self.button1["state"] = tk.NORMAL
+            else:
+                self.button1["state"] = tk.DISABLED
             return False
 
     def __init__(self, master):
