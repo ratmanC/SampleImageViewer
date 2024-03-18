@@ -42,12 +42,12 @@ class SizeChangeDialog(simpledialog.Dialog):
         super().__init__(parent=master, title="サイズ変更")
 
     def body(self, master):
-        vcmd = self.register(self.verticalSwitchButtonValidate)
-        hcmd = self.register(self.horizonSwitchButtonValidate)
+        vertical_val_cmd = self.register(self.verticalSwitchButtonValidate)
+        horizon_val_cmd = self.register(self.horizonSwitchButtonValidate)
         self.vertical_entry: tk.Entry = tk.Entry(master, width=10, validate="key",
-                                                 validatecommand=(vcmd, "%P"))
+                                                 validatecommand=(vertical_val_cmd, "%P"))
         self.horizon_entry: tk.Entry = tk.Entry(master, width=10, validate="key",
-                                                validatecommand=(hcmd, "%P"))
+                                                validatecommand=(horizon_val_cmd, "%P"))
         self.vertical_entry.pack(side=tk.LEFT, padx=5, pady=5)
         self.horizon_entry.pack(side=tk.LEFT, padx=5, pady=5)
 
