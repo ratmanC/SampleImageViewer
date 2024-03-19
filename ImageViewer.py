@@ -73,8 +73,11 @@ def resize():
         new_image = now.now_image.resize(size=now.first_image.size)
     else:
         input_size = SizeChangeDialog(root).get_size()
-        print(input_size, type(input_size))
-        new_image = now.now_image.resize(size=input_size)
+        if input_size:
+            new_image = now.now_image.resize(size=input_size)
+        else:
+            address_box.configure(state="readonly")
+            return
 
     now.now_image = new_image
     img_stack.push(now.now_image)
