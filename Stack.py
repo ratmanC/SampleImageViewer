@@ -22,23 +22,18 @@ class Stack:
         if self._pointer < 10:
             self._pointer += 1
 
-        print("len{},pointer{}".format(len(self.stack), self._pointer))
-
     def undoPop(self):
         if len(self.stack) == 1 or self._pointer == 1:
             return
 
         pop_obj = self.stack[self._pointer - 2]
         self._pointer -= 1
-        print("len{},pointer{}".format(len(self.stack), self._pointer))
         return pop_obj
 
     def redoPop(self):
         if len(self.stack) == 0 or len(self.stack) <= self._pointer:
             return
 
-        print("viewpoint{}".format(self._pointer))
         pop_obj = self.stack[self._pointer]
         self._pointer += 1
-        print("len{},pointer{}".format(len(self.stack), self._pointer))
         return pop_obj
