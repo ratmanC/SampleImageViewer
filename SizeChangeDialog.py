@@ -26,6 +26,7 @@ class SizeChangeDialog(simpledialog.Dialog):
     """
     数字の入力と文字の削除しか受け付けないようにする
     """
+
     def entryValidater(self, s):
         if re.fullmatch(re.compile("[0-9]+"), s) or not s:
             return True
@@ -65,6 +66,6 @@ class SizeChangeDialog(simpledialog.Dialog):
     def apply(self):
         self.size = int(self.vertical_entry.get()), int(self.horizon_entry.get())
 
-    def get_size(self) -> Optional[Tuple]:
+    def get_size(self) -> Optional[Tuple[int, int]]:
 
         return self.size
