@@ -3,3 +3,6 @@
 開発環境<br>
   * IDE:Pycharm 
   * 言語:Python 3.10
+
+書籍リンク<br>
+https://www.shoeisha.co.jp/book/detail/9784798170381
