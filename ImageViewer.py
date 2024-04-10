@@ -105,7 +105,6 @@ def monochromatize():
     address_box.configure(state="readonly")
 
 
-# 90度ずつ回転処理
 def turnLeft():
     address_box.configure(state="normal")
     if not now.now_image:
@@ -132,7 +131,6 @@ def turnRight():
     address_box.configure(state="readonly")
 
 
-# 元に戻す・やり直す処理
 def undo(event=None):
     address_box.configure(state="normal")
     new_image = img_stack.undoPop()
