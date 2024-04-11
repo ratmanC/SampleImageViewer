@@ -7,12 +7,12 @@ import re
 class SizeChangeDialog(simpledialog.Dialog):
 
     # 相方となるEntryと入力後になる予定の文字列が両方存在しているときにのみOKボタンを有効化する
-    def judgeSwitchOKButtonByVerticalEntry(self, editedstr):
-        if self.horizon_entry.get() and editedstr:
+    def judgeSwitchOKButtonByVerticalEntry(self, edited_str):
+        if self.horizon_entry.get() and edited_str:
             self.button1["state"] = tk.NORMAL
         else:
             self.button1["state"] = tk.DISABLED
-        return self.validateEntry(editedstr)
+        return self.validateEntry(edited_str)
 
     def judgeSwitchOKButtonByHorizonEntry(self, edited_str):
         if self.vertical_entry.get() and edited_str:

@@ -44,7 +44,6 @@ def dispLabel(new_image):
     # 関数終了時に描画
 
 
-# フォルダを開く
 def openFile(event=None):
     fpath = fd.askopenfilename()
     # 指定のアドレスが存在するなら画面に表示する
