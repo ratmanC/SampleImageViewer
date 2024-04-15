@@ -35,7 +35,7 @@ img_stack = Stack()
 """
 
 
-# ラベルへ画像を張り付ける
+# 与えられた画像をラベルに参照を格納してから描画する
 def dispLabel(new_image):
     img = ImageTk.PhotoImage(new_image)
     # ガベージコレクションで画像情報を失わないようにLabelの内部パラメータに画像の参照を持たせている
