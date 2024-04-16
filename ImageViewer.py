@@ -2,7 +2,7 @@ import tkinter as tk
 import tkinter.filedialog as fd
 from PIL import Image, ImageTk
 from SizeChangeDialog import SizeChangeDialog
-from Stack import Stack
+import Stack
 
 
 class ImageData:
@@ -27,7 +27,7 @@ root.title("画像表示アプリ")
 
 # 画像の状態を扱うインスタンスの作成
 now = ImageData()
-img_stack = Stack()
+img_stack = Stack.Stack()
 
 """
 ショートカットキーで呼び出す関数は引数を受け取る必要があるが、ツールバーから呼び出した際は
