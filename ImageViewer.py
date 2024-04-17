@@ -29,11 +29,6 @@ root.title("画像表示アプリ")
 now = ImageData()
 img_stack = Stack.Stack()
 
-"""
-ショートカットキーで呼び出す関数は引数を受け取る必要があるが、ツールバーから呼び出した際は
-引数が発生しないためデフォルト引数でNoneにしておく
-"""
-
 
 def dispLabel(new_image):
     """与えられた画像をラベルに参照を格納してから描画する"""
@@ -42,6 +37,12 @@ def dispLabel(new_image):
     image_lbl.configure(image=img)
     image_lbl.image = img
     # 関数終了時に描画
+
+
+"""
+ショートカットキーで呼び出す関数は引数を受け取る必要があるが、ツールバーから呼び出した際は
+引数が発生しないためデフォルト引数でNoneにしておく
+"""
 
 
 def openFile(event=None):
