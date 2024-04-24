@@ -8,12 +8,12 @@ import Stack
 class ImageData:
     now_image: Image = None
     first_image: Image = None
-    monochrome: bool = False
+    is_monochrome: bool = False
     rotate: int = 0
 
     def reset(self):
         self.rotate = 0
-        self.monochrome = False
+        self.is_monochrome = False
 
 
 # ウィンドウの作成
@@ -91,14 +91,14 @@ def monochromatize():
         address_box.configure(state="readonly")
         return
 
-    if now.monochrome:
+    if now.is_monochrome:
         new_image = now.first_image.rotate(now.rotate % 360, expand=True)
         if now.now_image.size != now.first_image.size:
             new_image = new_image.resize(size=now.now_image.size)
-        now.monochrome = False
+        now.is_monochrome = False
     else:
         new_image = now.now_image.convert("L")
-        now.monochrome = True
+        now.is_monochrome = True
     now.now_image = new_image
     img_stack.push(now.now_image)
     dispLabel(new_image)

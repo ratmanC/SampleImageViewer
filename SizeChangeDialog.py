@@ -8,8 +8,8 @@ class SizeChangeDialog(simpledialog.Dialog):
     # NOTE:OKボタンの有効化について
     # validateに設定されたコマンドからBooleanが返ってこない限りEntryに入力結果が反映されず、
     # またValidateコマンドを完全に統一してしまうとどちらのEntryに入力が行われたのか判断できなくなる為、
-    # 入力を受け付けた段階でもう片方のEntryの中身と反映後予定の文字列一度判定を行い、入力がキャンセルされる場合は
-    # 反映前の状態で再度判定を行うことでOKボタンの状態を正常にしている
+    # 入力を受け付けた段階でもう片方のEntryの中身と反映後予定の文字列で一度判定を行い、入力がキャンセルされる場合は
+    # 反映前の文字列で再度判定を行うことでOKボタンの状態を正常にしている
 
     def judgeSwitchOKButtonByVerticalEntry(self, edited_str):
         # 相方となるEntryと入力後になる予定の文字列が両方存在しているときにのみOKボタンを有効化する
